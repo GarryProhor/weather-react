@@ -34,8 +34,7 @@ export const ThisDayInfo = (props: Props) => {
             value: '3 м/с юго-запад - легкий ветер'
         }
     ];
-    // @ts-ignore
-    // @ts-ignore
+
     return (
         <div className={s.this__day_info}>
             <div className={s.this__day_info_items}>{
