@@ -15,13 +15,17 @@ export const Header = (props: Props) => {
     const colourStyles = {
         control: (styles: any) => ({
             ...styles,
-            backgroundColor: 'rgba(71, 147, 255, 0.2)',
+            backgroundColor: 0 ? '#4f4f4f' : 'rgba(71, 147, 255, 0.2)',
             width: '194px',
             height: '37px',
             border: 'none',
             borderRadius: '10px',
             zIndex: 100,
-        })
+        }),
+        singleValue: (styles: any) => ({
+            ...styles,
+            color: 0 ? '#000' : '#fff',
+        }),
     };
     return (
         <header className={s.header}>
