@@ -2,8 +2,9 @@ import React from 'react';
 import s from './ThisDayInfo.module.scss';
 import cloud from '../../../../assets/images/cloud.png';
 import {ThisDayItem} from "./ThisDayItem";
+import {Weather} from "../../../../store/types/types";
 interface Props {
-
+    weather: Weather
 }
 export interface Item {
     icon_id: string,
@@ -11,7 +12,7 @@ export interface Item {
     value: string
 }
 
-export const ThisDayInfo = (props: Props) => {
+export const ThisDayInfo = ({weather}: Props) => {
     const items = [
         {
             icon_id: 'temp',
@@ -21,7 +22,7 @@ export const ThisDayInfo = (props: Props) => {
         {
             icon_id: 'pressure',
             name: 'Давление',
-            value: '765мм ртутного столба - нормальное'
+            value: `${weather.main.pressure}мм ртутного столба - нормальное`
         },
         {
             icon_id: 'precipitation',
@@ -38,7 +39,7 @@ export const ThisDayInfo = (props: Props) => {
     return (
         <div className={s.this__day_info}>
             <div className={s.this__day_info_items}>{
-                items.map((item : Item) => <ThisDayItem key={item.icon_id} item={item} />)
+                items.map((item : Item) => <ThisDayItem key={item.icon_id} item={item}  />)
             }</div>
             <img className={s.cloud__img} src={cloud} alt='cloud' />
         </div>
